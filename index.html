@@ -129,6 +129,7 @@
       font-family: 'SF Mono', 'Fira Code', monospace;
       font-size: 0.9rem;
       color: var(--muted);
+      overflow-wrap: break-word;
     }
     .demo-hint .prompt { color: var(--green); }
     .demo-hint .response { color: var(--text); margin-top: 8px; }
@@ -240,7 +241,7 @@
     }
     .pricing .subtitle {
       color: var(--muted);
-      margin-bottom: 40px;
+      margin-bottom: 48px;
     }
     .pricing-grid {
       display: grid;
@@ -365,10 +366,10 @@
   <nav>
     <div class="container">
       <div class="logo">Pal<span>-E</span></div>
-      <div>
-        <a href="#tools">Tools</a>&nbsp;&nbsp;&nbsp;
-        <a href="#how">How it works</a>&nbsp;&nbsp;&nbsp;
-        <a href="#pricing">Pricing</a>&nbsp;&nbsp;&nbsp;
+      <div style="display:flex;gap:24px">
+        <a href="#tools">Tools</a>
+        <a href="#how">How it works</a>
+        <a href="#pricing">Pricing</a>
         <a href="#faq">FAQ</a>
       </div>
     </div>
@@ -379,7 +380,7 @@
       <h1>Your AI assistant that<br><span class="highlight">actually does things</span></h1>
       <p>Message Pal-E on Telegram to schedule meetings, draft emails, manage Notion, and post to LinkedIn — using your real accounts, in one conversation. Try it free.</p>
       <div class="cta-group">
-        <a href="https://t.me/personal_assistant_ldraney_bot" class="btn btn-primary" target="_blank">
+        <a href="https://t.me/personal_assistant_ldraney_bot" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
           Try Free on Telegram
         </a>
         <a href="#how" class="btn btn-secondary">See how it works</a>
@@ -466,7 +467,7 @@
     </div>
   </section>
 
-  <section class="why">
+  <section class="why" id="why">
     <div class="container">
       <h2>Not another ChatGPT wrapper</h2>
       <p class="subtitle">Here's what makes Pal-E fundamentally different.</p>
@@ -503,7 +504,7 @@
             <li>Notion, Gmail, Calendar, LinkedIn</li>
             <li>Try everything before you pay</li>
           </ul>
-          <a href="https://t.me/personal_assistant_ldraney_bot" class="btn btn-secondary" target="_blank">
+          <a href="https://t.me/personal_assistant_ldraney_bot" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
             Start Free
           </a>
         </div>
@@ -516,7 +517,7 @@
             <li>Founding rate locked forever</li>
             <li>Priority support from the builder</li>
           </ul>
-          <a href="https://t.me/personal_assistant_ldraney_bot" class="btn btn-primary" target="_blank">
+          <a href="https://t.me/personal_assistant_ldraney_bot" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
             Go Unlimited
           </a>
         </div>
@@ -558,7 +559,7 @@
     <div class="container">
       <h2>Ready to try it?</h2>
       <p>Start chatting with Pal-E for free. No signup form — the bot is the signup.</p>
-      <a href="https://t.me/personal_assistant_ldraney_bot" class="btn btn-primary" target="_blank">
+      <a href="https://t.me/personal_assistant_ldraney_bot" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
         Try Free on Telegram
       </a>
     </div>
