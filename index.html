@@ -10,6 +10,7 @@
   <meta property="og:description" content="AI assistant that manages your Notion, Gmail, Calendar, and LinkedIn — all through Telegram. Self-hosted, private, free to try.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ldraney.github.io/pal-e/">
+  <!-- TODO: Add og:image once a branded preview image (1200x630px) is created -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
   <style>
     :root {
@@ -20,8 +21,8 @@
       --muted: #8888a0;
       --accent: #5b52e5;
       --accent-glow: rgba(91, 82, 229, 0.3);
+      --accent-text: #7b73ff;
       --green: #34d399;
-      --orange: #fb923c;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -51,7 +52,7 @@
       font-weight: 700;
       letter-spacing: -0.5px;
     }
-    .logo span { color: var(--accent); }
+    .logo span { color: var(--accent-text); }
     .nav-links { display: flex; gap: 24px; }
     nav a {
       color: var(--muted);
@@ -281,6 +282,7 @@
       border-radius: 20px;
       margin-bottom: 16px;
     }
+    .badge-muted { background: var(--border); color: var(--muted); }
     .price-amount {
       font-size: clamp(2.2rem, 6vw, 3rem);
       font-weight: 800;
@@ -335,6 +337,9 @@
       color: var(--muted);
       font-size: 0.9rem;
     }
+    .faq-item summary { cursor: pointer; list-style: none; }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary h3 { display: inline; }
 
     /* Final CTA */
     .final-cta {
@@ -360,13 +365,13 @@
       color: var(--muted);
       font-size: 0.85rem;
     }
-    footer a { color: var(--accent); text-decoration: none; padding: 12px 8px; display: inline-block; }
+    footer a { color: var(--accent-text); text-decoration: none; padding: 16px 8px; display: inline-block; }
     .footer-sub { margin-top: 8px; }
 
     /* Mobile */
     @media (max-width: 600px) {
       .nav-links { gap: 12px; flex-wrap: wrap; justify-content: flex-end; }
-      .nav-links a { font-size: 0.8rem; white-space: nowrap; padding: 12px 8px; }
+      .nav-links a { font-size: 0.8rem; white-space: nowrap; padding: 16px 8px; }
       .hero { padding: 48px 0 40px; }
       .demo-hint { font-size: 0.8rem; padding: 16px 20px; }
       .tool-grid, .why .tool-grid { grid-template-columns: 1fr; }
@@ -403,12 +408,12 @@
         <a href="#how" class="btn btn-secondary">See how it works</a>
       </div>
 
-      <div class="demo-hint" role="img" aria-label="Example conversations with Pal-E">
+      <div class="demo-hint" role="region" aria-label="Example conversations with Pal-E">
         <div class="prompt">&gt; "What's on my calendar tomorrow?"</div>
         <div class="response">You have 2 meetings: standup at 9am and a 1:1 with Sarah at 2pm. Want me to block focus time between them?</div>
         <div class="example">
           <div class="prompt">&gt; "Schedule my LinkedIn post about the product launch for Thursday at 10am"</div>
-          <div class="response">Done — your LinkedIn post is scheduled for Thursday, Feb 20 at 10:00 AM. I'll remind you an hour before. Want to preview the text?</div>
+          <div class="response">Done — your LinkedIn post is scheduled for Thursday at 10:00 AM. I'll remind you an hour before. Want to preview the text?</div>
         </div>
         <div class="example">
           <div class="prompt">&gt; "Summarize my unread emails, add action items to Notion, and block time on my calendar to handle them"</div>
@@ -514,7 +519,7 @@
       <p class="subtitle">Self-hosted AI means no per-token costs. Try free, upgrade when you're ready.</p>
       <div class="pricing-grid">
         <div class="price-card">
-          <div class="badge" style="background: var(--border); color: var(--muted);">Free Tier</div>
+          <div class="badge badge-muted">Free Tier</div>
           <div class="price-amount">Free</div>
           <ul>
             <li>Limited tokens per month</li>
@@ -546,30 +551,30 @@
   <section class="faq" id="faq">
     <div class="container">
       <h2>Frequently asked questions</h2>
-      <div class="faq-item">
-        <h3>Is my data safe?</h3>
+      <details class="faq-item">
+        <summary><h3>Is my data safe?</h3></summary>
         <p>Yes. Pal-E runs on self-hosted infrastructure — your messages are processed by local AI models, not sent to OpenAI or any cloud provider. OAuth tokens are encrypted at rest.</p>
-      </div>
-      <div class="faq-item">
-        <h3>What AI models does it use?</h3>
+      </details>
+      <details class="faq-item">
+        <summary><h3>What AI models does it use?</h3></summary>
         <p>Open-source models running on Ollama. This means zero API costs, which is how the flat monthly price works — no per-token fees to pass along.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Do I need to install anything?</h3>
+      </details>
+      <details class="faq-item">
+        <summary><h3>Do I need to install anything?</h3></summary>
         <p>No. Pal-E lives entirely inside Telegram. Open the chat, send a message, and you're using it.</p>
-      </div>
-      <div class="faq-item">
-        <h3>What if I cancel?</h3>
+      </details>
+      <details class="faq-item">
+        <summary><h3>What if I cancel?</h3></summary>
         <p>You drop back to the free tier. Your connected accounts and data stay intact — you just get limited tokens instead of unlimited.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Why $60/month?</h3>
+      </details>
+      <details class="faq-item">
+        <summary><h3>Why $60/month?</h3></summary>
         <p>Because self-hosted AI eliminates per-token costs. The price covers infrastructure and development — no middleman API bills to mark up.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Can I use this for my team?</h3>
+      </details>
+      <details class="faq-item">
+        <summary><h3>Can I use this for my team?</h3></summary>
         <p>Pal-E is individual-only right now. Team plans are on the roadmap — if you're interested, message the bot and let me know.</p>
-      </div>
+      </details>
     </div>
   </section>
 
