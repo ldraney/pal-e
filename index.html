@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pal-E — Your AI Assistant That Actually Does Things</title>
-  <meta name="description" content="AI assistant connected to your Notion, Gmail, and Calendar. Talk to it on Telegram. No setup required.">
+  <meta name="description" content="AI assistant that manages your Notion, Gmail, Calendar, and LinkedIn — all through Telegram. Self-hosted, private, free to try.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
   <style>
     :root {
@@ -121,7 +121,10 @@
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 12px;
-      display: inline-block;
+      display: block;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
       text-align: left;
       font-family: 'SF Mono', 'Fira Code', monospace;
       font-size: 0.9rem;
@@ -129,6 +132,7 @@
     }
     .demo-hint .prompt { color: var(--green); }
     .demo-hint .response { color: var(--text); margin-top: 8px; }
+    .demo-hint .example { border-top: 1px solid var(--border); padding-top: 16px; margin-top: 16px; }
 
     /* Tools section */
     .tools {
@@ -162,6 +166,12 @@
     .tool-card .icon { font-size: 1.8rem; margin-bottom: 12px; }
     .tool-card h3 { font-size: 1rem; margin-bottom: 6px; }
     .tool-card p { font-size: 0.85rem; color: var(--muted); }
+    .tools-roadmap {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 32px;
+    }
 
     /* How it works */
     .how {
@@ -200,6 +210,23 @@
     .step h3 { font-size: 1rem; margin-bottom: 4px; }
     .step p { color: var(--muted); font-size: 0.9rem; }
 
+    /* Why section */
+    .why {
+      padding: 80px 0;
+      border-top: 1px solid var(--border);
+    }
+    .why h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+    .why .subtitle {
+      text-align: center;
+      color: var(--muted);
+      margin-bottom: 48px;
+    }
+
     /* Pricing */
     .pricing {
       padding: 80px 0;
@@ -215,13 +242,22 @@
       color: var(--muted);
       margin-bottom: 40px;
     }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
     .price-card {
       background: var(--surface);
-      border: 2px solid var(--accent);
+      border: 1px solid var(--border);
       border-radius: 16px;
       padding: 40px;
-      max-width: 400px;
-      margin: 0 auto;
+      text-align: left;
+    }
+    .price-card-accent {
+      border: 2px solid var(--accent);
       box-shadow: 0 0 40px var(--accent-glow);
     }
     .price-card .badge {
@@ -264,6 +300,49 @@
       margin-top: 8px;
     }
 
+    /* FAQ */
+    .faq {
+      padding: 80px 0;
+      border-top: 1px solid var(--border);
+    }
+    .faq h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .faq-item {
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .faq-item:first-of-type {
+      border-top: 1px solid var(--border);
+    }
+    .faq-item h3 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+    .faq-item p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* Final CTA */
+    .final-cta {
+      padding: 80px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    .final-cta h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .final-cta p {
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+
     /* Footer */
     footer {
       padding: 40px 0;
@@ -278,6 +357,7 @@
     @media (max-width: 600px) {
       .hero { padding: 60px 0 50px; }
       .tool-grid { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -288,18 +368,19 @@
       <div>
         <a href="#tools">Tools</a>&nbsp;&nbsp;&nbsp;
         <a href="#how">How it works</a>&nbsp;&nbsp;&nbsp;
-        <a href="#pricing">Pricing</a>
+        <a href="#pricing">Pricing</a>&nbsp;&nbsp;&nbsp;
+        <a href="#faq">FAQ</a>
       </div>
     </div>
   </nav>
 
   <section class="hero">
     <div class="container">
-      <h1>An AI assistant that<br><span class="highlight">actually does things</span></h1>
-      <p>Connected to your Notion, Gmail, and Google Calendar. Talk to it on Telegram. It reads, writes, schedules, and searches your real tools.</p>
+      <h1>Your AI assistant that<br><span class="highlight">actually does things</span></h1>
+      <p>Message Pal-E on Telegram to schedule meetings, draft emails, manage Notion, and post to LinkedIn — using your real accounts, in one conversation. Try it free.</p>
       <div class="cta-group">
         <a href="https://t.me/personal_assistant_ldraney_bot" class="btn btn-primary" target="_blank">
-          Try Me Now on Telegram
+          Try Free on Telegram
         </a>
         <a href="#how" class="btn btn-secondary">See how it works</a>
       </div>
@@ -307,6 +388,14 @@
       <div class="demo-hint">
         <div class="prompt">&gt; "What's on my calendar tomorrow?"</div>
         <div class="response">You have 2 meetings: standup at 9am and a 1:1 with Sarah at 2pm. Want me to block focus time between them?</div>
+        <div class="example">
+          <div class="prompt">&gt; "Schedule my LinkedIn post about the product launch for Thursday at 10am"</div>
+          <div class="response">Done — your LinkedIn post is scheduled for Thursday, Feb 20 at 10:00 AM. I'll remind you an hour before. Want to preview the text?</div>
+        </div>
+        <div class="example">
+          <div class="prompt">&gt; "Summarize my unread emails, add action items to Notion, and block time on my calendar to handle them"</div>
+          <div class="response">Found 4 unread threads. Created 3 action items in your Notion inbox and blocked 11am–12pm tomorrow for follow-ups. Here's the summary...</div>
+        </div>
       </div>
     </div>
   </section>
@@ -314,7 +403,7 @@
   <section class="tools" id="tools">
     <div class="container">
       <h2>Your tools, connected</h2>
-      <p class="subtitle">One-click OAuth setup. Pal-E accesses your accounts securely.</p>
+      <p class="subtitle">Connect each account with a single OAuth link right inside the chat. Your tokens are encrypted and never shared.</p>
       <div class="tool-grid">
         <div class="tool-card">
           <div class="icon">📝</div>
@@ -332,11 +421,12 @@
           <p>Check your schedule, create events, find free slots. Stay on top of your day.</p>
         </div>
         <div class="tool-card">
-          <div class="icon">🔧</div>
-          <h3>More coming</h3>
-          <p>GitHub, Slack, Linear, and more integrations are on the roadmap. New tools ship to all users.</p>
+          <div class="icon">💼</div>
+          <h3>LinkedIn</h3>
+          <p>Schedule, edit, reschedule, and retry posts — all conversationally, right from Telegram.</p>
         </div>
       </div>
+      <p class="tools-roadmap">Coming soon: GitHub, Slack, Google Drive, appointment scheduling. New tools ship to all members automatically.</p>
     </div>
   </section>
 
@@ -347,30 +437,54 @@
         <div class="step">
           <div class="step-num">1</div>
           <div>
-            <h3>Open Telegram</h3>
-            <p>Tap "Try Me Now" and start chatting with Pal-E. No signup, no app to install. Works immediately.</p>
+            <h3>Open Telegram and say hi</h3>
+            <p>Tap "Try Free on Telegram" and send your first message. The bot is the signup — no forms, no app to install.</p>
           </div>
         </div>
         <div class="step">
           <div class="step-num">2</div>
           <div>
-            <h3>Connect your tools</h3>
-            <p>Pal-E walks you through connecting Notion, Gmail, and Calendar with one-click OAuth. Your credentials stay yours.</p>
+            <h3>Connect your accounts</h3>
+            <p>Pal-E sends you one-click OAuth links right in the chat. Tap to connect Notion, Gmail, Calendar, or LinkedIn. Your tokens are encrypted and stored on isolated infrastructure.</p>
           </div>
         </div>
         <div class="step">
           <div class="step-num">3</div>
           <div>
-            <h3>Just ask</h3>
-            <p>"Summarize my unread emails." "What did I write about Project X in Notion?" "Schedule lunch with Mike on Thursday." It just works.</p>
+            <h3>Put it to work</h3>
+            <p>"Summarize my unread emails and add action items to Notion." "Schedule a LinkedIn post for Thursday." "Block 2 hours for deep work tomorrow." Pal-E handles it across tools in a single request.</p>
           </div>
         </div>
         <div class="step">
           <div class="step-num">4</div>
           <div>
-            <h3>Subscribe to keep going</h3>
-            <p>Love it? Subscribe to keep your assistant running with unlimited access to all connected tools.</p>
+            <h3>Go unlimited</h3>
+            <p>Start free with limited tokens and full tool access. When you're ready, upgrade to the Founding Member plan at $60/mo — locked at that rate forever.</p>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="why">
+    <div class="container">
+      <h2>Not another ChatGPT wrapper</h2>
+      <p class="subtitle">Here's what makes Pal-E fundamentally different.</p>
+      <div class="tool-grid">
+        <div class="tool-card">
+          <div class="icon">🖥️</div>
+          <h3>Self-hosted AI, zero API costs</h3>
+          <p>Pal-E runs open-source models on Ollama — no OpenAI bills, no per-token fees. That's how $60/mo covers unlimited messages.</p>
+        </div>
+        <div class="tool-card">
+          <div class="icon">🔒</div>
+          <h3>Your data never leaves</h3>
+          <p>Isolated infrastructure, encrypted OAuth tokens, no cloud AI provider ever sees your data. Your conversations stay private.</p>
+        </div>
+        <div class="tool-card">
+          <div class="icon">🧑‍💻</div>
+          <h3>Built and run by one person</h3>
+          <p>No VC funding, no pivot risk. You get direct access to the person who builds and operates the system.</p>
         </div>
       </div>
     </div>
@@ -379,28 +493,81 @@
   <section class="pricing" id="pricing">
     <div class="container">
       <h2>Simple pricing</h2>
-      <p class="subtitle">No tiers. No per-message fees. One plan, everything included.</p>
-      <div class="price-card">
-        <div class="badge">Founding Member</div>
-        <div class="price-amount">$60<span>/month</span></div>
-        <ul>
-          <li>Unlimited messages</li>
-          <li>Notion, Gmail, Calendar integrations</li>
-          <li>New tools as they ship, included</li>
-          <li>Founding rate locked forever</li>
-          <li>Priority support from the builder</li>
-        </ul>
-        <a href="https://t.me/personal_assistant_ldraney_bot" class="btn btn-primary" target="_blank">
-          Start on Telegram
-        </a>
+      <p class="subtitle">Self-hosted AI means no per-token costs. Try free, upgrade when you're ready.</p>
+      <div class="pricing-grid">
+        <div class="price-card">
+          <div class="price-amount">Free</div>
+          <ul>
+            <li>Limited tokens per month</li>
+            <li>All tool integrations</li>
+            <li>Notion, Gmail, Calendar, LinkedIn</li>
+            <li>Try everything before you pay</li>
+          </ul>
+          <a href="https://t.me/personal_assistant_ldraney_bot" class="btn btn-secondary" target="_blank">
+            Start Free
+          </a>
+        </div>
+        <div class="price-card price-card-accent">
+          <div class="badge">Founding Member</div>
+          <div class="price-amount">$60<span>/month</span></div>
+          <ul>
+            <li>Unlimited messages</li>
+            <li>All current + future integrations</li>
+            <li>Founding rate locked forever</li>
+            <li>Priority support from the builder</li>
+          </ul>
+          <a href="https://t.me/personal_assistant_ldraney_bot" class="btn btn-primary" target="_blank">
+            Go Unlimited
+          </a>
+        </div>
       </div>
+    </div>
+  </section>
+
+  <section class="faq" id="faq">
+    <div class="container">
+      <h2>Frequently asked questions</h2>
+      <div class="faq-item">
+        <h3>Is my data safe?</h3>
+        <p>Yes. Pal-E runs on self-hosted infrastructure — your messages are processed by local AI models, not sent to OpenAI or any cloud provider. OAuth tokens are encrypted at rest.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What AI models does it use?</h3>
+        <p>Open-source models running on Ollama. This means zero API costs, which is how the flat monthly price works — no per-token fees to pass along.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Do I need to install anything?</h3>
+        <p>No. Pal-E lives entirely inside Telegram. Open the chat, send a message, and you're using it.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What if I cancel?</h3>
+        <p>You drop back to the free tier. Your connected accounts and data stay intact — you just get limited tokens instead of unlimited.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Why $60/month?</h3>
+        <p>Because self-hosted AI eliminates per-token costs. The price covers infrastructure and development — no middleman API bills to mark up.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can I use this for my team?</h3>
+        <p>Pal-E is individual-only right now. Team plans are on the roadmap — if you're interested, message the bot and let me know.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <div class="container">
+      <h2>Ready to try it?</h2>
+      <p>Start chatting with Pal-E for free. No signup form — the bot is the signup.</p>
+      <a href="https://t.me/personal_assistant_ldraney_bot" class="btn btn-primary" target="_blank">
+        Try Free on Telegram
+      </a>
     </div>
   </section>
 
   <footer>
     <div class="container">
       <p>Built by <a href="https://github.com/ldraney">Lucas Draney</a>. Powered by self-hosted AI. No data leaves the cluster.</p>
-      <p style="margin-top: 8px;">Questions? DM <a href="https://t.me/personal_assistant_ldraney_bot">@personal_assistant_ldraney_bot</a> on Telegram.</p>
+      <p style="margin-top: 8px;">Questions? <a href="https://t.me/personal_assistant_ldraney_bot">Message Pal-E on Telegram</a>.</p>
     </div>
   </footer>
 </body>
