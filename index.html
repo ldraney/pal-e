@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pal-E — Your AI Assistant That Actually Does Things</title>
   <meta name="description" content="AI assistant that manages your Notion, Gmail, Calendar, and LinkedIn — all through Telegram. Self-hosted, private, free to try.">
+  <meta name="theme-color" content="#0a0a0f">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
   <style>
     :root {
@@ -47,10 +48,12 @@
       letter-spacing: -0.5px;
     }
     .logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 24px; }
     nav a {
       color: var(--muted);
       text-decoration: none;
       font-size: 0.9rem;
+      padding: 10px 4px;
       transition: color 0.2s;
     }
     nav a:hover { color: var(--text); }
@@ -153,7 +156,7 @@
     }
     .tool-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 16px;
     }
     .tool-card {
@@ -274,7 +277,7 @@
       margin-bottom: 16px;
     }
     .price-amount {
-      font-size: 3rem;
+      font-size: clamp(2.2rem, 6vw, 3rem);
       font-weight: 800;
       margin-bottom: 4px;
     }
@@ -356,9 +359,16 @@
 
     /* Mobile */
     @media (max-width: 600px) {
-      .hero { padding: 60px 0 50px; }
+      .nav-links { gap: 12px; font-size: 0.8rem; }
+      .hero { padding: 48px 0 40px; }
+      .demo-hint { font-size: 0.8rem; padding: 16px 20px; }
       .tool-grid { grid-template-columns: 1fr; }
+      .price-card { padding: 28px 24px; }
       .pricing-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; }
     }
   </style>
 </head>
@@ -366,7 +376,7 @@
   <nav>
     <div class="container">
       <div class="logo">Pal<span>-E</span></div>
-      <div style="display:flex;gap:24px">
+      <div class="nav-links">
         <a href="#tools">Tools</a>
         <a href="#how">How it works</a>
         <a href="#pricing">Pricing</a>
@@ -567,8 +577,8 @@
 
   <footer>
     <div class="container">
-      <p>Built by <a href="https://github.com/ldraney">Lucas Draney</a>. Powered by self-hosted AI. No data leaves the cluster.</p>
-      <p style="margin-top: 8px;">Questions? <a href="https://t.me/personal_assistant_ldraney_bot">Message Pal-E on Telegram</a>.</p>
+      <p>Built by <a href="https://github.com/ldraney" target="_blank" rel="noopener noreferrer">Lucas Draney</a>. Powered by self-hosted AI. No data leaves the cluster.</p>
+      <p style="margin-top: 8px;">Questions? <a href="https://t.me/personal_assistant_ldraney_bot" target="_blank" rel="noopener noreferrer">Message Pal-E on Telegram</a>.</p>
     </div>
   </footer>
 </body>
