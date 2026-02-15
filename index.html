@@ -6,6 +6,10 @@
   <title>Pal-E — Your AI Assistant That Actually Does Things</title>
   <meta name="description" content="AI assistant that manages your Notion, Gmail, Calendar, and LinkedIn — all through Telegram. Self-hosted, private, free to try.">
   <meta name="theme-color" content="#0a0a0f">
+  <meta property="og:title" content="Pal-E — Your AI Assistant That Actually Does Things">
+  <meta property="og:description" content="AI assistant that manages your Notion, Gmail, Calendar, and LinkedIn — all through Telegram. Self-hosted, private, free to try.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ldraney.github.io/pal-e/">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
   <style>
     :root {
@@ -14,8 +18,8 @@
       --border: #1e1e2e;
       --text: #e4e4ef;
       --muted: #8888a0;
-      --accent: #6c63ff;
-      --accent-glow: rgba(108, 99, 255, 0.3);
+      --accent: #5b52e5;
+      --accent-glow: rgba(91, 82, 229, 0.3);
       --green: #34d399;
       --orange: #fb923c;
     }
@@ -129,7 +133,7 @@
       margin-left: auto;
       margin-right: auto;
       text-align: left;
-      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-family: 'SF Mono', 'Fira Code', 'Cascadia Mono', Consolas, 'Liberation Mono', Menlo, monospace;
       font-size: 0.9rem;
       color: var(--muted);
       overflow-wrap: break-word;
@@ -356,12 +360,13 @@
       color: var(--muted);
       font-size: 0.85rem;
     }
-    footer a { color: var(--accent); text-decoration: none; padding: 12px 0; display: inline-block; }
+    footer a { color: var(--accent); text-decoration: none; padding: 12px 8px; display: inline-block; }
+    .footer-sub { margin-top: 8px; }
 
     /* Mobile */
     @media (max-width: 600px) {
       .nav-links { gap: 12px; flex-wrap: wrap; justify-content: flex-end; }
-      .nav-links a { font-size: 0.8rem; white-space: nowrap; }
+      .nav-links a { font-size: 0.8rem; white-space: nowrap; padding: 12px 8px; }
       .hero { padding: 48px 0 40px; }
       .demo-hint { font-size: 0.8rem; padding: 16px 20px; }
       .tool-grid, .why .tool-grid { grid-template-columns: 1fr; }
@@ -389,7 +394,7 @@
 
   <section class="hero">
     <div class="container">
-      <h1>Your AI assistant that<br><span class="highlight">actually does things</span></h1>
+      <h1>Your AI assistant that <span class="highlight">actually does things</span></h1>
       <p>Message Pal-E on Telegram to schedule meetings, draft emails, manage Notion, and post to LinkedIn — using your real accounts, in one conversation. Try it free.</p>
       <div class="cta-group">
         <a href="https://t.me/personal_assistant_ldraney_bot" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
@@ -398,7 +403,7 @@
         <a href="#how" class="btn btn-secondary">See how it works</a>
       </div>
 
-      <div class="demo-hint">
+      <div class="demo-hint" role="img" aria-label="Example conversations with Pal-E">
         <div class="prompt">&gt; "What's on my calendar tomorrow?"</div>
         <div class="response">You have 2 meetings: standup at 9am and a 1:1 with Sarah at 2pm. Want me to block focus time between them?</div>
         <div class="example">
@@ -479,7 +484,7 @@
     </div>
   </section>
 
-  <section class="why" id="why">
+  <section class="why">
     <div class="container">
       <h2>Not another ChatGPT wrapper</h2>
       <p class="subtitle">Here's what makes Pal-E fundamentally different.</p>
@@ -509,6 +514,7 @@
       <p class="subtitle">Self-hosted AI means no per-token costs. Try free, upgrade when you're ready.</p>
       <div class="pricing-grid">
         <div class="price-card">
+          <div class="badge" style="background: var(--border); color: var(--muted);">Free Tier</div>
           <div class="price-amount">Free</div>
           <ul>
             <li>Limited tokens per month</li>
@@ -580,7 +586,7 @@
   <footer>
     <div class="container">
       <p>Built by <a href="https://github.com/ldraney" target="_blank" rel="noopener noreferrer">Lucas Draney</a>. Powered by self-hosted AI. No data leaves the cluster.</p>
-      <p style="margin-top: 8px;">Questions? <a href="https://t.me/personal_assistant_ldraney_bot" target="_blank" rel="noopener noreferrer">Message Pal-E on Telegram</a>.</p>
+      <p class="footer-sub">Questions? <a href="https://t.me/personal_assistant_ldraney_bot" target="_blank" rel="noopener noreferrer">Message Pal-E on Telegram</a>.</p>
     </div>
   </footer>
 </body>
