@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pal-E — Your AI Assistant That Actually Does Things</title>
-  <meta name="description" content="AI assistant that manages your Notion, Gmail, Calendar, and LinkedIn — all through Telegram. Self-hosted, private, free to try.">
+  <meta name="description" content="AI assistant that manages your Notion, Gmail, Calendar, and LinkedIn — all through Telegram. Self-hosted, private, plans from $20/mo.">
   <meta name="theme-color" content="#0a0a0f">
   <meta property="og:title" content="Pal-E — Your AI Assistant That Actually Does Things">
-  <meta property="og:description" content="AI assistant that manages your Notion, Gmail, Calendar, and LinkedIn — all through Telegram. Self-hosted, private, free to try.">
+  <meta property="og:description" content="AI assistant that manages your Notion, Gmail, Calendar, and LinkedIn — all through Telegram. Self-hosted, private, plans from $20/mo.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ldraney.github.io/pal-e/">
   <!-- TODO: Add og:image once a branded preview image (1200x630px) is created -->
@@ -23,8 +23,8 @@
       --accent-glow: rgba(91, 82, 229, 0.3);
       --accent-text: #7b73ff;
       --green: #34d399;
-      --amber: var(--amber);
-      --amber-dark: var(--amber-dark);
+      --amber: #f59e0b;
+      --amber-dark: #d97706;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -38,6 +38,7 @@
     }
 
     .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+    .pricing .container { max-width: 960px; }
 
     /* Nav */
     nav {
@@ -351,21 +352,34 @@
     }
     .pricing-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      max-width: 700px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 900px;
       margin: 0 auto;
     }
     .price-card {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 16px;
-      padding: 40px;
+      padding: 36px 28px;
       text-align: left;
     }
     .price-card-accent {
       border: 2px solid var(--accent);
       box-shadow: 0 0 40px var(--accent-glow);
+    }
+    .price-card-amber {
+      border: 2px solid var(--amber);
+      box-shadow: 0 0 40px rgba(245, 158, 11, 0.15);
+    }
+    .badge-amber {
+      background: linear-gradient(135deg, var(--amber), var(--amber-dark));
+      color: #1a1a2e;
+    }
+    .price-subtitle {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 4px;
     }
     .price-card .badge {
       display: inline-block;
@@ -473,7 +487,7 @@
       .demo-hint { font-size: 0.8rem; padding: 16px 20px; }
       .tool-grid, .why .tool-grid { grid-template-columns: 1fr; }
       .price-card { padding: 28px 24px; }
-      .pricing-grid { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; max-width: 400px; }
       .ga-features { grid-template-columns: 1fr; gap: 12px; }
       .google-access-inner { padding: 32px 24px; }
     }
@@ -499,12 +513,12 @@
   <section class="hero">
     <div class="container">
       <h1>Your AI assistant that <span class="highlight">actually does things</span></h1>
-      <p>Message Pal-E on Telegram to schedule meetings, draft emails, manage Notion, and post to LinkedIn — using your real accounts, in one conversation. Try it free.</p>
+      <p>Message Pal-E on Telegram to schedule meetings, draft emails, manage Notion, and post to LinkedIn — using your real accounts, in one conversation.</p>
       <div class="cta-group">
         <a href="https://t.me/personal_assistant_ldraney_bot" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
-          Try Free on Telegram
+          Start on Telegram
         </a>
-        <a href="#how" class="btn btn-secondary">See how it works</a>
+        <a href="#pricing" class="btn btn-secondary">See pricing</a>
       </div>
 
       <div class="demo-hint" role="region" aria-label="Example conversations with Pal-E">
@@ -534,15 +548,15 @@
         </div>
         <div class="tool-card tool-card-early">
           <div class="icon">📧</div>
-          <h3>Gmail <span class="early-badge">Early Access</span></h3>
+          <h3>Gmail <span class="early-badge">Pro</span></h3>
           <p>Read, search, and draft emails. Summarize threads. Never miss an important message.</p>
-          <p class="early-note">Requires onboarding appointment — limited spots available.</p>
+          <p class="early-note">Included with Pro plan — requires onboarding setup.</p>
         </div>
         <div class="tool-card tool-card-early">
           <div class="icon">📅</div>
-          <h3>Google Calendar <span class="early-badge">Early Access</span></h3>
+          <h3>Google Calendar <span class="early-badge">Pro</span></h3>
           <p>Check your schedule, create events, find free slots. Stay on top of your day.</p>
-          <p class="early-note">Requires onboarding appointment — limited spots available.</p>
+          <p class="early-note">Included with Pro plan — requires onboarding setup.</p>
         </div>
         <div class="tool-card">
           <div class="icon">💼</div>
@@ -557,12 +571,12 @@
   <section class="google-access" id="google-access">
     <div class="container">
       <div class="google-access-inner">
-        <h2>Google Integrations — Early Access</h2>
-        <p class="ga-subtitle">Gmail and Google Calendar are available to a limited group of early adopters. Book a quick onboarding call to get set up.</p>
+        <h2>Google Integrations — Pro Tier</h2>
+        <p class="ga-subtitle">Gmail and Google Calendar are included with the Pro plan. Each user gets a personal onboarding to connect their Google accounts.</p>
         <div class="ga-features">
           <div class="ga-feature">
             <h4>Limited spots</h4>
-            <p>Only 100 early access slots available. Get in now before they fill up.</p>
+            <p>Only 100 Pro slots available during early access. Get in now before they fill up.</p>
           </div>
           <div class="ga-feature">
             <h4>Personal onboarding</h4>
@@ -570,13 +584,13 @@
           </div>
           <div class="ga-feature">
             <h4>"Unverified app" warning</h4>
-            <p>During setup, you will see a Google warning — this is expected for early access apps. Your onboarding guide walks you through it.</p>
+            <p>During setup, you will see a Google warning — this is expected and your onboarding guide walks you through it.</p>
           </div>
         </div>
         <a href="https://t.me/personal_assistant_ldraney_bot" class="btn btn-google-access" target="_blank" rel="noopener noreferrer">
-          Request Google Access
+          Upgrade to Pro
         </a>
-        <p class="ga-note">Message the Pal-E Telegram bot to request your early access slot. You will be booked for a short onboarding call.</p>
+        <p class="ga-note">Message the Pal-E Telegram bot to upgrade. You'll submit your Google email and be booked for a short onboarding call within 24 hours.</p>
       </div>
     </div>
   </section>
@@ -596,7 +610,7 @@
           <div class="step-num">2</div>
           <div>
             <h3>Connect your accounts</h3>
-            <p>Pal-E sends you one-click OAuth links right in the chat. Tap to connect Notion or LinkedIn instantly. Gmail and Calendar are in early access — <a href="#google-access" style="color: var(--accent-text);">request a slot</a> and get a personal onboarding walkthrough. All tokens are encrypted and stored on isolated infrastructure.</p>
+            <p>Pal-E sends you one-click OAuth links right in the chat. Tap to connect Notion or LinkedIn instantly. Gmail and Calendar are available on the <a href="#google-access" style="color: var(--amber);">Pro plan</a> with a personal onboarding walkthrough. All tokens are encrypted and stored on isolated infrastructure.</p>
           </div>
         </div>
         <div class="step">
@@ -609,8 +623,8 @@
         <div class="step">
           <div class="step-num">4</div>
           <div>
-            <h3>Go unlimited</h3>
-            <p>Start free with limited tokens and full tool access. When you're ready, upgrade to the Founding Member plan at $60/mo — locked at that rate forever.</p>
+            <h3>Pick your plan</h3>
+            <p>Start free, then upgrade to Base ($20/mo) for Notion + LinkedIn, or Pro ($50/mo) to add Gmail + Calendar with personal onboarding.</p>
           </div>
         </div>
       </div>
@@ -625,7 +639,7 @@
         <div class="tool-card">
           <div class="icon">🖥️</div>
           <h3>Self-hosted AI, zero API costs</h3>
-          <p>Pal-E runs open-source models on Ollama — no OpenAI bills, no per-token fees. That's how $60/mo covers unlimited messages.</p>
+          <p>Pal-E runs open-source models on Ollama — no OpenAI bills, no per-token fees. That's how flat monthly pricing covers unlimited messages.</p>
         </div>
         <div class="tool-card">
           <div class="icon">🔒</div>
@@ -644,32 +658,48 @@
   <section class="pricing" id="pricing">
     <div class="container">
       <h2>Simple pricing</h2>
-      <p class="subtitle">Self-hosted AI means no per-token costs. Try free, upgrade when you're ready.</p>
+      <p class="subtitle">Self-hosted AI means no per-token costs. Pick the tier that fits your workflow.</p>
       <div class="pricing-grid">
         <div class="price-card">
-          <div class="badge badge-muted">Free Tier</div>
-          <div class="price-amount">Free</div>
+          <div class="badge badge-muted">Base</div>
+          <div class="price-amount">$20<span>/month</span></div>
+          <p class="price-subtitle">Notion + LinkedIn</p>
           <ul>
-            <li>Limited tokens per month</li>
-            <li>All tool integrations</li>
-            <li>Notion + LinkedIn instant, Google by request</li>
-            <li>Try everything before you pay</li>
+            <li>Unlimited messages</li>
+            <li>Notion integration</li>
+            <li>LinkedIn integration</li>
+            <li>Auto-provisioned on signup</li>
           </ul>
           <a href="https://t.me/personal_assistant_ldraney_bot" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
-            Start Free
+            Get Started
+          </a>
+        </div>
+        <div class="price-card price-card-amber">
+          <div class="badge badge-amber">Pro</div>
+          <div class="price-amount">$50<span>/month</span></div>
+          <p class="price-subtitle">+ Gmail + Google Calendar</p>
+          <ul>
+            <li>Everything in Base</li>
+            <li>Gmail integration</li>
+            <li>Google Calendar integration</li>
+            <li>Personal onboarding (24hr setup)</li>
+          </ul>
+          <a href="https://t.me/personal_assistant_ldraney_bot" class="btn btn-google-access" target="_blank" rel="noopener noreferrer">
+            Upgrade to Pro
           </a>
         </div>
         <div class="price-card price-card-accent">
-          <div class="badge">Founding Member</div>
-          <div class="price-amount">$60<span>/month</span></div>
+          <div class="badge">Custom</div>
+          <div class="price-amount">Let's talk</div>
+          <p class="price-subtitle">Any integration you need</p>
           <ul>
-            <li>Unlimited messages</li>
-            <li>All current + future integrations</li>
-            <li>Founding rate locked forever</li>
-            <li>Priority support from the builder</li>
+            <li>Everything in Pro</li>
+            <li>Custom integrations</li>
+            <li>Dedicated onboarding call</li>
+            <li>Pricing per engagement</li>
           </ul>
           <a href="https://t.me/personal_assistant_ldraney_bot" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
-            Go Unlimited
+            Book a Call
           </a>
         </div>
       </div>
@@ -693,19 +723,19 @@
       </details>
       <details class="faq-item">
         <summary><h3>What if I cancel?</h3></summary>
-        <p>You drop back to the free tier. Your connected accounts and data stay intact — you just get limited tokens instead of unlimited.</p>
+        <p>Your connected accounts and data stay intact. Downgrade to a lower tier or stop paying entirely — no data is deleted unless you request it.</p>
       </details>
       <details class="faq-item">
-        <summary><h3>Why $60/month?</h3></summary>
-        <p>Because self-hosted AI eliminates per-token costs. The price covers infrastructure and development — no middleman API bills to mark up.</p>
+        <summary><h3>Why are there different tiers?</h3></summary>
+        <p>Base ($20/mo) covers Notion and LinkedIn, which connect instantly via OAuth. Pro ($50/mo) adds Gmail and Calendar, which require manual setup on Google's side — the higher price covers that hands-on onboarding. Self-hosted AI means no per-token API costs at any tier.</p>
       </details>
       <details class="faq-item">
         <summary><h3>Why do I see an "unverified app" warning for Google?</h3></summary>
         <p>Gmail and Calendar are in early access while we complete Google's verification process. During onboarding, you'll click "Advanced" then "Go to Pal-E" to proceed — this is safe and expected. Your data is still encrypted and self-hosted. Once verification is complete, the warning goes away for everyone.</p>
       </details>
       <details class="faq-item">
-        <summary><h3>Why do Google integrations require an appointment?</h3></summary>
-        <p>Google limits early access apps to a small number of test users. Each slot requires manual setup on our end, so we walk you through it personally to make sure everything works perfectly.</p>
+        <summary><h3>Why does Pro require onboarding?</h3></summary>
+        <p>Google limits apps to a small number of authorized users during early access. Each Pro user requires manual setup on Google's side, so we walk you through it personally to make sure everything connects perfectly.</p>
       </details>
       <details class="faq-item">
         <summary><h3>Can I use this for my team?</h3></summary>
@@ -716,10 +746,10 @@
 
   <section class="final-cta">
     <div class="container">
-      <h2>Ready to try it?</h2>
-      <p>Start chatting with Pal-E for free. No signup form — the bot is the signup.</p>
+      <h2>Ready to get started?</h2>
+      <p>Message Pal-E on Telegram to pick your plan. No signup form — the bot handles everything.</p>
       <a href="https://t.me/personal_assistant_ldraney_bot" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
-        Try Free on Telegram
+        Start on Telegram
       </a>
     </div>
   </section>
