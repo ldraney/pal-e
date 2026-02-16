@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service — Pal-E</title>
+  <meta name="description" content="Pal-E Terms of Service. Subscription terms, acceptable use, and service conditions.">
+  <meta name="theme-color" content="#0a0a0f">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --surface: #12121a;
+      --border: #1e1e2e;
+      --text: #e4e4ef;
+      --muted: #8888a0;
+      --accent: #5b52e5;
+      --accent-text: #7b73ff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container { max-width: 700px; margin: 0 auto; padding: 0 24px; }
+
+    nav {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      text-decoration: none;
+      color: var(--text);
+    }
+    .logo span { color: var(--accent-text); }
+    nav a.back {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      padding: 11px 8px;
+      transition: color 0.2s;
+    }
+    nav a.back:hover { color: var(--text); }
+
+    .content {
+      padding: 60px 0 80px;
+    }
+    .content h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 8px;
+    }
+    .content .effective {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 40px;
+    }
+    .content h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-top: 36px;
+      margin-bottom: 12px;
+    }
+    .content p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+    .content ul {
+      list-style: none;
+      margin-bottom: 16px;
+    }
+    .content li {
+      color: var(--muted);
+      font-size: 0.95rem;
+      padding: 4px 0;
+      padding-left: 20px;
+      position: relative;
+    }
+    .content li::before {
+      content: "\2022";
+      color: var(--accent-text);
+      position: absolute;
+      left: 0;
+    }
+    .content a {
+      color: var(--accent-text);
+      text-decoration: none;
+    }
+    .content a:hover {
+      text-decoration: underline;
+    }
+    .content strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    footer {
+      padding: 40px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    footer a { color: var(--accent-text); text-decoration: none; padding: 16px 8px; display: inline-block; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <a href="index.html" class="logo">Pal<span>-E</span></a>
+      <a href="index.html" class="back">&larr; Back to home</a>
+    </div>
+  </nav>
+
+  <section class="content">
+    <div class="container">
+      <h1>Terms of Service</h1>
+      <p class="effective">Effective: February 16, 2026</p>
+
+      <p>By using Pal-E, you agree to these terms. They're short and straightforward.</p>
+
+      <h2>The service</h2>
+      <p>Pal-E is an AI assistant accessible through Telegram that connects to your third-party accounts (Google, Notion, LinkedIn) to perform tasks on your behalf. It is built and operated by Lucas Draney.</p>
+
+      <h2>Accounts and access</h2>
+      <ul>
+        <li>You access Pal-E through your Telegram account. Your Telegram user ID is your identity in the system.</li>
+        <li>When you connect third-party services via OAuth, you authorize Pal-E to access those services within the permissions you grant.</li>
+        <li>You can disconnect any integration or stop using the service at any time.</li>
+      </ul>
+
+      <h2>Google integrations</h2>
+      <p>Gmail and Google Calendar integrations are currently in <strong>testing mode</strong> under Google's OAuth framework. This means:</p>
+      <ul>
+        <li>You must be manually added as a test user before connecting Google services.</li>
+        <li>You may see an "unverified app" warning during the OAuth flow — this is expected.</li>
+        <li>Gmail tokens expire every 7 days and require re-authorization.</li>
+      </ul>
+
+      <h2>Pricing and subscriptions</h2>
+      <ul>
+        <li><strong>Free tier</strong> — limited tokens per month, full access to all integrations.</li>
+        <li><strong>Founding Member</strong> — $60/month, unlimited messages, rate locked for as long as you stay subscribed.</li>
+      </ul>
+      <p>Payments are processed through Stripe. You can cancel at any time — cancellation drops you to the free tier. Your connected accounts and conversation history remain intact.</p>
+      <p>No refunds for partial months. If you cancel mid-cycle, you retain access through the end of your billing period.</p>
+
+      <h2>Acceptable use</h2>
+      <p>Use Pal-E for its intended purpose — managing your personal productivity tools. Don't use it to:</p>
+      <ul>
+        <li>Send spam or bulk messages through connected accounts.</li>
+        <li>Attempt to access other users' data or accounts.</li>
+        <li>Reverse-engineer, probe, or attack the service infrastructure.</li>
+        <li>Violate the terms of any connected third-party service.</li>
+      </ul>
+
+      <h2>Service availability</h2>
+      <p>Pal-E is a solo-operated project. There is no uptime SLA. The service may experience downtime for maintenance, updates, or unexpected issues. Reasonable effort is made to keep things running smoothly, but no guarantees are provided.</p>
+
+      <h2>Limitation of liability</h2>
+      <p>Pal-E is provided "as is." Lucas Draney is not liable for any damages arising from your use of the service, including but not limited to: actions taken on your behalf through connected accounts, data loss, service interruptions, or third-party service changes.</p>
+      <p>You are responsible for reviewing actions Pal-E takes on your behalf (emails sent, calendar events created, posts published, etc.).</p>
+
+      <h2>Changes to these terms</h2>
+      <p>These terms may be updated. Material changes will be communicated through the Telegram bot before taking effect.</p>
+
+      <h2>Contact</h2>
+      <p>Questions? Message <a href="https://t.me/personal_assistant_ldraney_bot" target="_blank" rel="noopener noreferrer">Pal-E on Telegram</a> or reach out to Lucas Draney directly via the bot.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <a href="index.html">Home</a> &middot; <a href="privacy.html">Privacy Policy</a>
+    </div>
+  </footer>
+</body>
+</html>
