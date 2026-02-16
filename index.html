@@ -182,6 +182,101 @@
       margin-top: 32px;
     }
 
+    /* Early Access badge on tool cards */
+    .tool-card-early {
+      position: relative;
+    }
+    .early-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: #1a1a2e;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+    .tool-card-early .early-note {
+      font-size: 0.78rem;
+      color: #f59e0b;
+      margin-top: 8px;
+      line-height: 1.4;
+    }
+
+    /* Google Early Access section */
+    .google-access {
+      padding: 60px 0;
+      border-top: 1px solid var(--border);
+    }
+    .google-access-inner {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 48px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .google-access-inner::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #f59e0b, #d97706, #f59e0b);
+    }
+    .google-access-inner h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .google-access-inner .ga-subtitle {
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 560px;
+      margin: 0 auto 32px;
+    }
+    .ga-features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      text-align: left;
+      margin-bottom: 32px;
+    }
+    .ga-feature {
+      padding: 16px;
+    }
+    .ga-feature h4 {
+      font-size: 0.9rem;
+      margin-bottom: 4px;
+      color: var(--text);
+    }
+    .ga-feature p {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .ga-note {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 20px;
+      line-height: 1.5;
+    }
+    .btn-google-access {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: #1a1a2e;
+      font-weight: 700;
+      box-shadow: 0 0 30px rgba(245, 158, 11, 0.2);
+    }
+    .btn-google-access:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 50px rgba(245, 158, 11, 0.3);
+    }
+
     /* How it works */
     .how {
       padding: 80px 0;
@@ -377,6 +472,8 @@
       .tool-grid, .why .tool-grid { grid-template-columns: 1fr; }
       .price-card { padding: 28px 24px; }
       .pricing-grid { grid-template-columns: 1fr; }
+      .ga-features { grid-template-columns: 1fr; gap: 12px; }
+      .google-access-inner { padding: 32px 24px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -433,15 +530,17 @@
           <h3>Notion</h3>
           <p>Search pages, create entries, query databases. Your second brain, accessible by voice.</p>
         </div>
-        <div class="tool-card">
+        <div class="tool-card tool-card-early">
           <div class="icon">📧</div>
-          <h3>Gmail</h3>
+          <h3>Gmail <span class="early-badge">Early Access</span></h3>
           <p>Read, search, and draft emails. Summarize threads. Never miss an important message.</p>
+          <p class="early-note">Requires onboarding appointment — limited spots available.</p>
         </div>
-        <div class="tool-card">
+        <div class="tool-card tool-card-early">
           <div class="icon">📅</div>
-          <h3>Google Calendar</h3>
+          <h3>Google Calendar <span class="early-badge">Early Access</span></h3>
           <p>Check your schedule, create events, find free slots. Stay on top of your day.</p>
+          <p class="early-note">Requires onboarding appointment — limited spots available.</p>
         </div>
         <div class="tool-card">
           <div class="icon">💼</div>
@@ -450,6 +549,33 @@
         </div>
       </div>
       <p class="tools-roadmap">Coming soon: GitHub, Slack, Google Drive, appointment scheduling. New tools ship to all members automatically.</p>
+    </div>
+  </section>
+
+  <section class="google-access" id="google-access">
+    <div class="container">
+      <div class="google-access-inner">
+        <h2>Google Integrations — Early Access</h2>
+        <p class="ga-subtitle">Gmail and Google Calendar are available to a limited group of early adopters. Book a quick onboarding call to get set up.</p>
+        <div class="ga-features">
+          <div class="ga-feature">
+            <h4>Limited spots</h4>
+            <p>Only 100 early access slots available. Get in now before they fill up.</p>
+          </div>
+          <div class="ga-feature">
+            <h4>Personal onboarding</h4>
+            <p>A 1-on-1 walkthrough to connect your Google accounts and get you running in minutes.</p>
+          </div>
+          <div class="ga-feature">
+            <h4>"Unverified app" warning</h4>
+            <p>During setup you will see a Google warning — this is expected for early access apps. Your onboarding guide walks you through it.</p>
+          </div>
+        </div>
+        <a href="https://t.me/personal_assistant_ldraney_bot" class="btn btn-google-access" target="_blank" rel="noopener noreferrer">
+          Request Google Access
+        </a>
+        <p class="ga-note">Message the Pal-E Telegram bot to request your early access slot. You will be booked for a short onboarding call.</p>
+      </div>
     </div>
   </section>
 
@@ -468,7 +594,7 @@
           <div class="step-num">2</div>
           <div>
             <h3>Connect your accounts</h3>
-            <p>Pal-E sends you one-click OAuth links right in the chat. Tap to connect Notion, Gmail, Calendar, or LinkedIn. Your tokens are encrypted and stored on isolated infrastructure.</p>
+            <p>Pal-E sends you one-click OAuth links right in the chat. Tap to connect Notion or LinkedIn instantly. Gmail and Calendar are in early access — <a href="#google-access" style="color: var(--accent-text);">request a slot</a> and get a personal onboarding walkthrough. All tokens are encrypted and stored on isolated infrastructure.</p>
           </div>
         </div>
         <div class="step">
@@ -524,7 +650,7 @@
           <ul>
             <li>Limited tokens per month</li>
             <li>All tool integrations</li>
-            <li>Notion, Gmail, Calendar, LinkedIn</li>
+            <li>Notion + LinkedIn instant, Google by request</li>
             <li>Try everything before you pay</li>
           </ul>
           <a href="https://t.me/personal_assistant_ldraney_bot" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
@@ -570,6 +696,14 @@
       <details class="faq-item">
         <summary><h3>Why $60/month?</h3></summary>
         <p>Because self-hosted AI eliminates per-token costs. The price covers infrastructure and development — no middleman API bills to mark up.</p>
+      </details>
+      <details class="faq-item">
+        <summary><h3>Why do I see an "unverified app" warning for Google?</h3></summary>
+        <p>Gmail and Calendar are in early access while we complete Google's verification process. During onboarding, you'll click "Advanced" then "Go to Pal-E" to proceed — this is safe and expected. Your data is still encrypted and self-hosted. Once verification is complete, the warning goes away for everyone.</p>
+      </details>
+      <details class="faq-item">
+        <summary><h3>Why do Google integrations require an appointment?</h3></summary>
+        <p>Google limits early access apps to a small number of test users. Each slot requires manual setup on our end, so we walk you through it personally to make sure everything works perfectly.</p>
       </details>
       <details class="faq-item">
         <summary><h3>Can I use this for my team?</h3></summary>
