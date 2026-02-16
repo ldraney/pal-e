@@ -23,6 +23,8 @@
       --accent-glow: rgba(91, 82, 229, 0.3);
       --accent-text: #7b73ff;
       --green: #34d399;
+      --amber: var(--amber);
+      --amber-dark: var(--amber-dark);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -188,7 +190,7 @@
     }
     .early-badge {
       display: inline-block;
-      background: linear-gradient(135deg, #f59e0b, #d97706);
+      background: linear-gradient(135deg, var(--amber), var(--amber-dark));
       color: #1a1a2e;
       font-size: 0.65rem;
       font-weight: 700;
@@ -201,7 +203,7 @@
     }
     .tool-card-early .early-note {
       font-size: 0.78rem;
-      color: #f59e0b;
+      color: var(--amber);
       margin-top: 8px;
       line-height: 1.4;
     }
@@ -227,7 +229,7 @@
       left: 0;
       right: 0;
       height: 3px;
-      background: linear-gradient(90deg, #f59e0b, #d97706, #f59e0b);
+      background: linear-gradient(90deg, var(--amber), var(--amber-dark), var(--amber));
     }
     .google-access-inner h2 {
       font-size: 1.5rem;
@@ -267,7 +269,7 @@
       line-height: 1.5;
     }
     .btn-google-access {
-      background: linear-gradient(135deg, #f59e0b, #d97706);
+      background: linear-gradient(135deg, var(--amber), var(--amber-dark));
       color: #1a1a2e;
       font-weight: 700;
       box-shadow: 0 0 30px rgba(245, 158, 11, 0.2);
@@ -568,7 +570,7 @@
           </div>
           <div class="ga-feature">
             <h4>"Unverified app" warning</h4>
-            <p>During setup you will see a Google warning — this is expected for early access apps. Your onboarding guide walks you through it.</p>
+            <p>During setup, you will see a Google warning — this is expected for early access apps. Your onboarding guide walks you through it.</p>
           </div>
         </div>
         <a href="https://t.me/personal_assistant_ldraney_bot" class="btn btn-google-access" target="_blank" rel="noopener noreferrer">
