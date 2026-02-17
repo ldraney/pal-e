@@ -357,6 +357,9 @@
       color: var(--amber);
       text-decoration: underline;
     }
+    .accent-link {
+      color: var(--accent-text);
+    }
 
     /* Alpha Tools section */
     .alpha-tools {
@@ -727,14 +730,14 @@
           <div class="step-num">1</div>
           <div>
             <h3>Pick your path</h3>
-            <p>On Telegram, tap "Try Free" and send your first message — the bot is the signup. On Claude.ai, paste an <a href="#add-to-claude" style="color: var(--accent-text);">MCP server URL</a> into your settings. Either way, no forms, no app to install.</p>
+            <p>On Telegram, tap "Try Free" and send your first message — the bot is the signup. Or <a href="#add-to-claude" class="accent-link">add MCP servers to Claude.ai</a> to use your own AI. Either way, no forms, no app to install.</p>
           </div>
         </div>
         <div class="step">
           <div class="step-num">2</div>
           <div>
             <h3>Connect your accounts</h3>
-            <p>On Telegram, Pal-E sends you one-click OAuth links right in the chat. On Claude.ai, paste <a href="#add-to-claude" style="color: var(--accent-text);">MCP server URLs</a> into your settings. Either way, your tokens are encrypted and stored on isolated infrastructure.</p>
+            <p>On Telegram, Pal-E sends you one-click OAuth links right in the chat. On Claude.ai, you'll authorize each tool on first use. Either way, your tokens are encrypted and stored on isolated infrastructure.</p>
           </div>
         </div>
         <div class="step">
@@ -760,8 +763,8 @@
         </div>
         <div class="tool-card">
           <div class="icon">🔒</div>
-          <h3>Your data never leaves</h3>
-          <p>Isolated infrastructure, encrypted OAuth tokens, no cloud AI provider ever sees your data. Your conversations stay private.</p>
+          <h3>Your data stays protected</h3>
+          <p>Isolated infrastructure, encrypted OAuth tokens. On Telegram, your data never leaves the cluster. On Claude.ai, your prompts go through Anthropic but your tokens and credentials stay on private infrastructure.</p>
         </div>
         <div class="tool-card">
           <div class="icon">🔌</div>
@@ -833,7 +836,7 @@
 
   <footer>
     <div class="container">
-      <p>Built by <a href="https://github.com/ldraney" target="_blank" rel="noopener noreferrer">Lucas Draney</a>. Powered by self-hosted AI. No data leaves the cluster.</p>
+      <p>Built by <a href="https://github.com/ldraney" target="_blank" rel="noopener noreferrer">Lucas Draney</a>. Powered by self-hosted infrastructure. Your credentials never leave the cluster.</p>
       <p class="footer-sub"><a href="privacy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms of Service</a></p>
       <p class="footer-sub">Questions? <a href="https://t.me/personal_assistant_ldraney_bot" target="_blank" rel="noopener noreferrer">Message Pal-E on Telegram</a>.</p>
     </div>
