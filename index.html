@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pal-E — Your AI Assistant That Actually Does Things</title>
-  <meta name="description" content="AI assistant that manages your Notion, Gmail, Calendar, and LinkedIn — all through Telegram. Self-hosted, private, plans from $20/mo.">
+  <meta name="description" content="AI assistant that manages your Notion, Gmail, Calendar, and LinkedIn — through Telegram or directly in Claude.ai via MCP. Self-hosted, private, free.">
   <meta name="theme-color" content="#0a0a0f">
   <meta property="og:title" content="Pal-E — Your AI Assistant That Actually Does Things">
-  <meta property="og:description" content="AI assistant that manages your Notion, Gmail, Calendar, and LinkedIn — all through Telegram. Self-hosted, private, plans from $20/mo.">
+  <meta property="og:description" content="AI assistant that manages your Notion, Gmail, Calendar, and LinkedIn — through Telegram or directly in Claude.ai via MCP. Self-hosted, private, free.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ldraney.github.io/pal-e/">
   <!-- TODO: Add og:image once a branded preview image (1200x630px) is created -->
@@ -124,6 +124,16 @@
     .btn-secondary:hover {
       border-color: var(--accent);
     }
+    .btn-green {
+      background: var(--green);
+      color: #0a0a0f;
+      font-weight: 700;
+      box-shadow: 0 0 30px rgba(52, 211, 153, 0.2);
+    }
+    .btn-green:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 50px rgba(52, 211, 153, 0.3);
+    }
 
     /* Demo prompt */
     .demo-hint {
@@ -185,14 +195,9 @@
       margin-top: 32px;
     }
 
-    /* Pro badge on tool cards */
-    .tool-card-pro {
-      position: relative;
-    }
-    .pro-badge {
+    /* Tier badges */
+    .tier-badge {
       display: inline-block;
-      background: linear-gradient(135deg, var(--amber), var(--amber-dark));
-      color: #1a1a2e;
       font-size: 0.65rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -202,19 +207,54 @@
       margin-left: 8px;
       vertical-align: middle;
     }
-    .tool-card-pro .pro-note {
+    .tier-badge-instant {
+      background: linear-gradient(135deg, var(--green), #2ab389);
+      color: #0a0a0f;
+    }
+    .tier-badge-alpha {
+      background: linear-gradient(135deg, var(--amber), var(--amber-dark));
+      color: #1a1a2e;
+    }
+    .tool-card .early-note {
       font-size: 0.78rem;
       color: var(--amber);
       margin-top: 8px;
       line-height: 1.4;
     }
 
-    /* Google Pro Tier section */
-    .google-access {
+    /* Tool stats */
+    .tool-stats {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin-top: 32px;
+      margin-bottom: 12px;
+    }
+    .tool-stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+    .tool-stat .stat-value {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--accent-text);
+    }
+    .tool-stat .stat-label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Self-Serve MCP Guide */
+    .mcp-guide {
       padding: 60px 0;
       border-top: 1px solid var(--border);
     }
-    .google-access-inner {
+    .mcp-guide-inner {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 16px;
@@ -223,7 +263,109 @@
       position: relative;
       overflow: hidden;
     }
-    .google-access-inner::before {
+    .mcp-guide-inner::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--green), #2ab389, var(--green));
+    }
+    .mcp-guide-inner h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .mcp-guide-inner .mcp-subtitle {
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 560px;
+      margin: 0 auto 32px;
+    }
+    .mcp-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      text-align: left;
+      margin-bottom: 32px;
+    }
+    .mcp-step {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .mcp-step-num {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--green);
+      color: #0a0a0f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+    .mcp-step h3 {
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+    .mcp-step p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .mcp-url-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 16px;
+      margin-top: 8px;
+      font-family: 'SF Mono', 'Fira Code', 'Cascadia Mono', Consolas, 'Liberation Mono', Menlo, monospace;
+      font-size: 0.82rem;
+      color: var(--green);
+      user-select: all;
+      -webkit-user-select: all;
+      word-break: break-all;
+    }
+    .mcp-url-label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 12px;
+      margin-bottom: 4px;
+    }
+    .mcp-note {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 20px;
+      line-height: 1.5;
+    }
+    .mcp-alpha-note {
+      font-size: 0.82rem;
+      color: var(--amber);
+      margin-top: 16px;
+      line-height: 1.5;
+    }
+
+    /* Alpha Tools section */
+    .alpha-tools {
+      padding: 60px 0;
+      border-top: 1px solid var(--border);
+    }
+    .alpha-tools-inner {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 48px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .alpha-tools-inner::before {
       content: "";
       position: absolute;
       top: 0;
@@ -232,50 +374,50 @@
       height: 3px;
       background: linear-gradient(90deg, var(--amber), var(--amber-dark), var(--amber));
     }
-    .google-access-inner h2 {
+    .alpha-tools-inner h2 {
       font-size: 1.5rem;
       font-weight: 700;
       margin-bottom: 12px;
     }
-    .google-access-inner .ga-subtitle {
+    .alpha-tools-inner .at-subtitle {
       color: var(--muted);
       font-size: 1rem;
       max-width: 560px;
       margin: 0 auto 32px;
     }
-    .ga-features {
+    .at-features {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
       text-align: left;
       margin-bottom: 32px;
     }
-    .ga-feature {
+    .at-feature {
       padding: 16px;
     }
-    .ga-feature h4 {
+    .at-feature h4 {
       font-size: 0.9rem;
       margin-bottom: 4px;
       color: var(--text);
     }
-    .ga-feature p {
+    .at-feature p {
       font-size: 0.82rem;
       color: var(--muted);
       line-height: 1.5;
     }
-    .ga-note {
+    .at-note {
       font-size: 0.82rem;
       color: var(--muted);
       margin-top: 20px;
       line-height: 1.5;
     }
-    .btn-google-access {
+    .btn-alpha {
       background: linear-gradient(135deg, var(--amber), var(--amber-dark));
       color: #1a1a2e;
       font-weight: 700;
       box-shadow: 0 0 30px rgba(245, 158, 11, 0.2);
     }
-    .btn-google-access:hover {
+    .btn-alpha:hover {
       transform: translateY(-2px);
       box-shadow: 0 0 50px rgba(245, 158, 11, 0.3);
     }
@@ -334,93 +476,6 @@
       margin-bottom: 48px;
     }
     .why .tool-grid { grid-template-columns: repeat(3, 1fr); }
-
-    /* Pricing */
-    .pricing {
-      padding: 80px 0;
-      border-top: 1px solid var(--border);
-      text-align: center;
-    }
-    .pricing h2 {
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
-    .pricing .subtitle {
-      color: var(--muted);
-      margin-bottom: 48px;
-    }
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    .price-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 36px 28px;
-      text-align: left;
-    }
-    .price-card-accent {
-      border: 2px solid var(--accent);
-      box-shadow: 0 0 40px var(--accent-glow);
-    }
-    .price-card-amber {
-      border: 2px solid var(--amber);
-      box-shadow: 0 0 40px rgba(245, 158, 11, 0.15);
-    }
-    .badge-amber {
-      background: linear-gradient(135deg, var(--amber), var(--amber-dark));
-      color: #1a1a2e;
-    }
-    .price-subtitle {
-      font-size: 0.85rem;
-      color: var(--muted);
-      margin-bottom: 4px;
-    }
-    .price-card .badge {
-      display: inline-block;
-      background: var(--accent);
-      color: white;
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      padding: 4px 12px;
-      border-radius: 20px;
-      margin-bottom: 16px;
-    }
-    .badge-muted { background: var(--border); color: var(--muted); }
-    .price-amount {
-      font-size: clamp(2.2rem, 6vw, 3rem);
-      font-weight: 800;
-      margin-bottom: 4px;
-    }
-    .price-amount span { font-size: 1rem; color: var(--muted); font-weight: 400; }
-    .price-card ul {
-      list-style: none;
-      text-align: left;
-      margin: 24px 0;
-    }
-    .price-card li {
-      padding: 8px 0;
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-    .price-card li::before {
-      content: "\2713";
-      color: var(--green);
-      margin-right: 10px;
-      font-weight: 700;
-    }
-    .price-card .btn {
-      width: 100%;
-      justify-content: center;
-      margin-top: 8px;
-    }
 
     /* FAQ */
     .faq {
@@ -491,10 +546,10 @@
       .hero { padding: 48px 0 40px; }
       .demo-hint { font-size: 0.8rem; padding: 16px 20px; }
       .tool-grid, .why .tool-grid { grid-template-columns: 1fr; }
-      .price-card { padding: 28px 24px; }
-      .pricing-grid { grid-template-columns: 1fr; max-width: 400px; }
-      .ga-features { grid-template-columns: 1fr; gap: 12px; }
-      .google-access-inner { padding: 32px 24px; }
+      .at-features { grid-template-columns: 1fr; gap: 12px; }
+      .alpha-tools-inner { padding: 32px 24px; }
+      .mcp-guide-inner { padding: 32px 24px; }
+      .tool-stats { gap: 20px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -508,8 +563,8 @@
       <div class="logo">Pal<span>-E</span></div>
       <div class="nav-links">
         <a href="#tools">Tools</a>
+        <a href="#add-to-claude">Add to Claude</a>
         <a href="#how">How it works</a>
-        <a href="#pricing">Pricing</a>
         <a href="#faq">FAQ</a>
       </div>
     </div>
@@ -518,12 +573,13 @@
   <section class="hero">
     <div class="container">
       <h1>Your AI assistant that <span class="highlight">actually does things</span></h1>
-      <p>Message Pal-E on Telegram to schedule meetings, draft emails, manage Notion, and post to LinkedIn — using your real accounts, in one conversation.</p>
+      <p>Message Pal-E on Telegram or add it to Claude.ai — schedule meetings, draft emails, manage Notion, and post to LinkedIn using your real accounts. Free.</p>
       <div class="cta-group">
         <a href="https://t.me/personal_assistant_ldraney_bot" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
           Start on Telegram
         </a>
-        <a href="#pricing" class="btn btn-secondary">See pricing</a>
+        <a href="#add-to-claude" class="btn btn-green">Add to Claude.ai</a>
+        <a href="#how" class="btn btn-secondary">See how it works</a>
       </div>
 
       <div class="demo-hint" role="region" aria-label="Example conversations with Pal-E">
@@ -543,59 +599,115 @@
 
   <section class="tools" id="tools">
     <div class="container">
-      <h2>Your tools, connected</h2>
-      <p class="subtitle">Connect each account with a single OAuth link right inside the chat. Your tokens are encrypted and never shared.</p>
+      <h2>Your tools, supercharged</h2>
+      <p class="subtitle">Connect each account with a single OAuth link or MCP URL. Your tokens are encrypted and never shared.</p>
       <div class="tool-grid">
         <div class="tool-card">
           <div class="icon">📝</div>
-          <h3>Notion</h3>
+          <h3>Notion <span class="tier-badge tier-badge-instant">Instant</span></h3>
           <p>Search pages, create entries, query databases. Your second brain, accessible by voice.</p>
         </div>
-        <div class="tool-card tool-card-pro">
+        <div class="tool-card">
           <div class="icon">📧</div>
-          <h3>Gmail <span class="pro-badge">Pro</span></h3>
+          <h3>Gmail <span class="tier-badge tier-badge-alpha">Alpha</span></h3>
           <p>Read, search, and draft emails. Summarize threads. Never miss an important message.</p>
-          <p class="pro-note">Included with Pro plan — requires onboarding setup.</p>
+          <p class="early-note">Requires onboarding appointment.</p>
         </div>
-        <div class="tool-card tool-card-pro">
+        <div class="tool-card">
           <div class="icon">📅</div>
-          <h3>Google Calendar <span class="pro-badge">Pro</span></h3>
+          <h3>Google Calendar <span class="tier-badge tier-badge-alpha">Alpha</span></h3>
           <p>Check your schedule, create events, find free slots. Stay on top of your day.</p>
-          <p class="pro-note">Included with Pro plan — requires onboarding setup.</p>
+          <p class="early-note">Requires onboarding appointment.</p>
         </div>
         <div class="tool-card">
           <div class="icon">💼</div>
-          <h3>LinkedIn</h3>
-          <p>Schedule, edit, reschedule, and retry posts — all conversationally, right from Telegram.</p>
+          <h3>LinkedIn <span class="tier-badge tier-badge-instant">Instant</span></h3>
+          <p>Schedule, edit, reschedule, and retry posts — all conversationally, right from Telegram or Claude.</p>
         </div>
       </div>
-      <p class="tools-roadmap">Coming soon: GitHub, Slack, Google Drive, appointment scheduling. New tools ship to all members automatically.</p>
+      <div class="tool-stats">
+        <div class="tool-stat">
+          <span class="stat-value">26</span>
+          <span class="stat-label">Tools available</span>
+        </div>
+        <div class="tool-stat">
+          <span class="stat-value">2.5x</span>
+          <span class="stat-label">More efficient</span>
+        </div>
+        <div class="tool-stat">
+          <span class="stat-value">Official</span>
+          <span class="stat-label">API integrations</span>
+        </div>
+      </div>
+      <p class="tools-roadmap">Coming soon: GitHub, Slack, Google Drive, appointment scheduling. New tools ship automatically.</p>
     </div>
   </section>
 
-  <section class="google-access" id="google-access">
+  <section class="mcp-guide" id="add-to-claude">
     <div class="container">
-      <div class="google-access-inner">
-        <h2>Google Integrations — Pro Tier</h2>
-        <p class="ga-subtitle">Gmail and Google Calendar are included with the Pro plan. Each user gets a personal onboarding to connect their Google accounts.</p>
-        <div class="ga-features">
-          <div class="ga-feature">
-            <h4>Limited spots</h4>
-            <p>Only 100 Pro slots available during the Google testing phase. Get in now before they fill up.</p>
+      <div class="mcp-guide-inner">
+        <h2>Add to Claude.ai in 60 seconds</h2>
+        <p class="mcp-subtitle">Paste MCP server URLs into Claude.ai settings — they auto-propagate to Claude Desktop and iOS.</p>
+        <div class="mcp-steps">
+          <div class="mcp-step">
+            <div class="mcp-step-num">1</div>
+            <div>
+              <h3>Open Claude.ai settings</h3>
+              <p>Go to claude.ai &rarr; Settings &rarr; Integrations &rarr; Add More. (Or Claude Desktop &rarr; Settings &rarr; Integrations.)</p>
+            </div>
           </div>
-          <div class="ga-feature">
+          <div class="mcp-step">
+            <div class="mcp-step-num">2</div>
+            <div>
+              <h3>Paste an MCP server URL</h3>
+              <p>Copy one of the URLs below and paste it as a new connector. Each tool is a separate MCP server.</p>
+              <div class="mcp-url-label">Notion</div>
+              <div class="mcp-url-box">https://notion-mcp.tail5b443a.ts.net/mcp</div>
+              <div class="mcp-url-label">LinkedIn</div>
+              <div class="mcp-url-box">https://linkedin-mcp.tail5b443a.ts.net/mcp</div>
+            </div>
+          </div>
+          <div class="mcp-step">
+            <div class="mcp-step-num">3</div>
+            <div>
+              <h3>Authorize on first use</h3>
+              <p>The first time Claude uses a tool, you'll see an OAuth prompt to connect your account. Approve it once — you're set.</p>
+            </div>
+          </div>
+        </div>
+        <p class="mcp-alpha-note">Gmail and Google Calendar MCP servers are also available but require an onboarding appointment first.<br>
+          Gmail: <code style="color: var(--amber);">https://gmail-mcp.tail5b443a.ts.net/mcp</code><br>
+          GCal: <code style="color: var(--amber);">https://gcal-mcp.tail5b443a.ts.net/mcp</code><br>
+          <a href="https://t.me/personal_assistant_ldraney_bot" target="_blank" rel="noopener noreferrer" style="color: var(--amber); text-decoration: underline;">Message the bot to book an appointment.</a>
+        </p>
+        <p class="mcp-note">One setup, everywhere — adding a connector in claude.ai automatically makes it available on Claude Desktop and the iOS app.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="alpha-tools" id="alpha-tools">
+    <div class="container">
+      <div class="alpha-tools-inner">
+        <h2>Alpha Integrations — By Appointment</h2>
+        <p class="at-subtitle">Gmail and Google Calendar require a quick onboarding call. Custom integrations are available on request.</p>
+        <div class="at-features">
+          <div class="at-feature">
+            <h4>Gmail + Google Calendar</h4>
+            <p>Full email and calendar management. Requires a short onboarding call to connect your Google account securely.</p>
+          </div>
+          <div class="at-feature">
             <h4>Personal onboarding</h4>
             <p>A 1-on-1 walkthrough to connect your Google accounts and get you running in minutes.</p>
           </div>
-          <div class="ga-feature">
-            <h4>"Unverified app" warning</h4>
-            <p>During setup, you will see a Google warning — this is expected and your onboarding guide walks you through it.</p>
+          <div class="at-feature">
+            <h4>Custom integrations</h4>
+            <p>Need a tool that isn't listed? Message the bot to discuss building a custom MCP server for your workflow.</p>
           </div>
         </div>
-        <a href="https://t.me/personal_assistant_ldraney_bot" class="btn btn-google-access" target="_blank" rel="noopener noreferrer">
-          Upgrade to Pro
+        <a href="https://t.me/personal_assistant_ldraney_bot" class="btn btn-alpha" target="_blank" rel="noopener noreferrer">
+          Message Bot to Book Appointment
         </a>
-        <p class="ga-note">Message the Pal-E Telegram bot to upgrade. You'll submit your Google email and be booked for a short onboarding call within 24 hours.</p>
+        <p class="at-note">Message the Pal-E Telegram bot to schedule your onboarding call. You'll be set up in one session.</p>
       </div>
     </div>
   </section>
@@ -615,21 +727,14 @@
           <div class="step-num">2</div>
           <div>
             <h3>Connect your accounts</h3>
-            <p>Pal-E sends you one-click OAuth links right in the chat. Tap to connect Notion or LinkedIn instantly. Gmail and Calendar are available on the <a href="#google-access" style="color: var(--amber);">Pro plan</a> with a personal onboarding walkthrough. All tokens are encrypted and stored on isolated infrastructure.</p>
+            <p>On Telegram, Pal-E sends you one-click OAuth links right in the chat. On Claude.ai, paste <a href="#add-to-claude" style="color: var(--accent-text);">MCP server URLs</a> into your settings. Either way, your tokens are encrypted and stored on isolated infrastructure.</p>
           </div>
         </div>
         <div class="step">
           <div class="step-num">3</div>
           <div>
-            <h3>Put it to work</h3>
-            <p>"Summarize my unread emails and add action items to Notion." "Schedule a LinkedIn post for Thursday." "Block 2 hours for deep work tomorrow." Pal-E handles it across tools in a single request.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">4</div>
-          <div>
-            <h3>Pick your plan</h3>
-            <p>Choose Base ($20/mo) for Notion + LinkedIn, or Pro ($50/mo) to add Gmail + Calendar with personal onboarding. Need something custom? Book a call.</p>
+            <h3>Your AI handles it</h3>
+            <p>"Summarize my unread emails and add action items to Notion." "Schedule a LinkedIn post for Thursday." "Block 2 hours for deep work tomorrow." It handles it across tools in a single request.</p>
           </div>
         </div>
       </div>
@@ -644,7 +749,7 @@
         <div class="tool-card">
           <div class="icon">🖥️</div>
           <h3>Self-hosted AI, zero API costs</h3>
-          <p>Pal-E runs open-source models on Ollama — no OpenAI bills, no per-token fees. That's how flat monthly pricing covers unlimited messages.</p>
+          <p>Pal-E runs open-source models on Ollama — no OpenAI bills, no per-token fees. Your data stays on private infrastructure.</p>
         </div>
         <div class="tool-card">
           <div class="icon">🔒</div>
@@ -652,60 +757,9 @@
           <p>Isolated infrastructure, encrypted OAuth tokens, no cloud AI provider ever sees your data. Your conversations stay private.</p>
         </div>
         <div class="tool-card">
-          <div class="icon">🧑‍💻</div>
-          <h3>Built and run by one person</h3>
-          <p>No VC funding, no pivot risk. You get direct access to the person who builds and operates the system.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="pricing" id="pricing">
-    <div class="container">
-      <h2>Simple pricing</h2>
-      <p class="subtitle">Self-hosted AI means no per-token costs. Pick the tier that fits your workflow.</p>
-      <div class="pricing-grid">
-        <div class="price-card">
-          <div class="badge badge-muted">Base</div>
-          <div class="price-amount">$20<span>/month</span></div>
-          <p class="price-subtitle">Notion + LinkedIn</p>
-          <ul>
-            <li>Unlimited messages</li>
-            <li>Notion integration</li>
-            <li>LinkedIn integration</li>
-            <li>Auto-provisioned on signup</li>
-          </ul>
-          <a href="https://t.me/personal_assistant_ldraney_bot" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
-            Get Started
-          </a>
-        </div>
-        <div class="price-card price-card-amber">
-          <div class="badge badge-amber">Pro</div>
-          <div class="price-amount">$50<span>/month</span></div>
-          <p class="price-subtitle">+ Gmail + Google Calendar</p>
-          <ul>
-            <li>Everything in Base</li>
-            <li>Gmail integration</li>
-            <li>Google Calendar integration</li>
-            <li>Personal onboarding (24hr setup)</li>
-          </ul>
-          <a href="https://t.me/personal_assistant_ldraney_bot" class="btn btn-google-access" target="_blank" rel="noopener noreferrer">
-            Upgrade to Pro
-          </a>
-        </div>
-        <div class="price-card price-card-accent">
-          <div class="badge">Custom</div>
-          <div class="price-amount">Let's talk</div>
-          <p class="price-subtitle">Any integration you need</p>
-          <ul>
-            <li>Everything in Pro</li>
-            <li>Custom integrations</li>
-            <li>Dedicated onboarding call</li>
-            <li>Pricing per engagement</li>
-          </ul>
-          <a href="https://t.me/personal_assistant_ldraney_bot" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
-            Book a Call
-          </a>
+          <div class="icon">🔌</div>
+          <h3>Works with any MCP-compatible AI</h3>
+          <p>Use Pal-E's MCP servers with Claude.ai, Claude Desktop, the iOS app, or any AI that supports MCP connectors.</p>
         </div>
       </div>
     </div>
@@ -720,19 +774,11 @@
       </details>
       <details class="faq-item">
         <summary><h3>What AI models does it use?</h3></summary>
-        <p>Open-source models running on Ollama. This means zero API costs, which is how the flat monthly price works — no per-token fees to pass along.</p>
+        <p>On Telegram, Pal-E uses open-source models running on Ollama. Through Claude.ai, you use Anthropic's Claude models directly — the MCP servers just give Claude access to your tools.</p>
       </details>
       <details class="faq-item">
         <summary><h3>Do I need to install anything?</h3></summary>
-        <p>No. Pal-E lives entirely inside Telegram. Open the chat, send a message, and you're using it.</p>
-      </details>
-      <details class="faq-item">
-        <summary><h3>What if I cancel?</h3></summary>
-        <p>Your connected accounts and data stay intact. Downgrade to a lower tier or stop paying entirely — no data is deleted unless you request it.</p>
-      </details>
-      <details class="faq-item">
-        <summary><h3>Why are there different tiers?</h3></summary>
-        <p>Base ($20/mo) covers Notion and LinkedIn, which connect instantly via OAuth. Pro ($50/mo) adds Gmail and Calendar, which require manual setup on Google's side — the higher price covers that hands-on onboarding. Self-hosted AI means no per-token API costs at any tier.</p>
+        <p>No. On Telegram, just open the chat and send a message. On Claude.ai, paste MCP server URLs into your settings — no downloads, no extensions.</p>
       </details>
       <details class="faq-item">
         <summary><h3>Why do I see an "unverified app" warning for Google?</h3></summary>
@@ -746,16 +792,35 @@
         <summary><h3>Can I use this for my team?</h3></summary>
         <p>Pal-E is individual-only right now. Team plans are on the roadmap — if you're interested, message the bot and let me know.</p>
       </details>
+      <details class="faq-item">
+        <summary><h3>What's an MCP server?</h3></summary>
+        <p>MCP (Model Context Protocol) is an open standard that lets AI assistants connect to external tools. Pal-E's MCP servers let Claude.ai talk to your Notion, LinkedIn, Gmail, and Google Calendar — no custom plugins or extensions needed.</p>
+      </details>
+      <details class="faq-item">
+        <summary><h3>Is this really free?</h3></summary>
+        <p>Yes. Pal-E runs on self-hosted infrastructure with open-source models, so there are no per-token API costs to pass along. You get full access to all available integrations at no charge.</p>
+      </details>
+      <details class="faq-item">
+        <summary><h3>What's the difference between Telegram and Claude.ai?</h3></summary>
+        <p>On Telegram, you chat with Pal-E's own AI (Ollama models) through a conversational bot. On Claude.ai, you use Anthropic's Claude models with Pal-E's MCP servers providing tool access. Same integrations, different AI — pick whichever you prefer.</p>
+      </details>
+      <details class="faq-item">
+        <summary><h3>How are these MCP servers better than alternatives?</h3></summary>
+        <p>Pal-E's MCP servers are self-hosted on private infrastructure — your OAuth tokens and data never touch third-party clouds. They use official APIs (not screen scraping), cover 26 tools across 4 integrations, and work with any MCP-compatible AI client.</p>
+      </details>
     </div>
   </section>
 
   <section class="final-cta">
     <div class="container">
-      <h2>Ready to get started?</h2>
-      <p>Message Pal-E on Telegram to pick your plan. No signup form — the bot handles everything.</p>
-      <a href="https://t.me/personal_assistant_ldraney_bot" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
-        Start on Telegram
-      </a>
+      <h2>Ready to try it?</h2>
+      <p>Start for free. No signup form — the bot is the signup, or paste an MCP URL and go.</p>
+      <div class="cta-group">
+        <a href="https://t.me/personal_assistant_ldraney_bot" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+          Try Free on Telegram
+        </a>
+        <a href="#add-to-claude" class="btn btn-green">Add to Claude.ai</a>
+      </div>
     </div>
   </section>
 
