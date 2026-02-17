@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Pal-E</title>
+  <meta name="description" content="Who built Pal-E, why you can trust the tools, and how to verify it yourself. Open-source infrastructure, production-grade security.">
+  <meta name="theme-color" content="#0a0a0f">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --surface: #12121a;
+      --border: #1e1e2e;
+      --text: #e4e4ef;
+      --muted: #8888a0;
+      --accent: #5b52e5;
+      --accent-text: #7b73ff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container { max-width: 700px; margin: 0 auto; padding: 0 24px; }
+
+    nav {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      text-decoration: none;
+      color: var(--text);
+    }
+    .logo span { color: var(--accent-text); }
+    nav a.back {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      padding: 11px 8px;
+      transition: color 0.2s;
+    }
+    nav a.back:hover { color: var(--text); }
+
+    .content {
+      padding: 60px 0 80px;
+    }
+    .content h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 8px;
+    }
+    .content .tagline {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 40px;
+    }
+    .content h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-top: 36px;
+      margin-bottom: 12px;
+    }
+    .content p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+    .content ul {
+      list-style: none;
+      margin-bottom: 16px;
+    }
+    .content li {
+      color: var(--muted);
+      font-size: 0.95rem;
+      padding: 4px 0;
+      padding-left: 20px;
+      position: relative;
+    }
+    .content li::before {
+      content: "\2022";
+      color: var(--accent-text);
+      position: absolute;
+      left: 0;
+    }
+    .content a {
+      color: var(--accent-text);
+      text-decoration: none;
+    }
+    .content a:hover {
+      text-decoration: underline;
+    }
+    .content strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .ref-list {
+      margin-top: 8px;
+      margin-bottom: 16px;
+    }
+    .ref-list li {
+      padding: 6px 0;
+    }
+
+    footer {
+      padding: 40px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    footer a { color: var(--accent-text); text-decoration: none; padding: 16px 8px; display: inline-block; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <a href="index.html" class="logo">Pal<span>-E</span></a>
+      <a href="index.html" class="back">&larr; Back to home</a>
+    </div>
+  </nav>
+
+  <section class="content">
+    <div class="container">
+      <h1>About Pal-E</h1>
+      <p class="tagline">Open-source tools, production-grade infrastructure, one person behind it all.</p>
+
+      <h2>Why you can trust the tools</h2>
+      <p>You are handing Pal-E OAuth tokens to your Notion, Gmail, Calendar, and LinkedIn accounts. That is a big ask. Here is why it is a safe one.</p>
+
+      <p><strong>The code is open source.</strong> Every MCP server and the infrastructure running them are publicly available for you to inspect:</p>
+      <ul>
+        <li><a href="https://github.com/ldraney/mcp-gateway-k8s" target="_blank" rel="noopener noreferrer">mcp-gateway-k8s</a> — the Kubernetes infrastructure that runs everything</li>
+        <li><a href="https://github.com/ldraney" target="_blank" rel="noopener noreferrer">github.com/ldraney</a> — all MCP server repos and supporting tools</li>
+      </ul>
+      <p>If you want to verify what happens with your data, you can read the source. No black boxes.</p>
+
+      <p><strong>Built on production infrastructure experience.</strong> Pal-E is not a weekend prototype. It is built by someone with 4+ years of production infrastructure work across AWS, Kubernetes, Terraform, and CI/CD pipelines. At Oddball, working on a federal government application, this meant achieving <strong>DORA Elite deployment metrics</strong> — the highest tier for software delivery performance. The same engineering discipline applies here.</p>
+
+      <p><strong>Professional MCP expertise.</strong> The MCP integrations in Pal-E are not hobby projects. At Pure Earth Labs, I built MCP servers for Inflow and Monday.com using a repeatable <strong>API to SDK to MCP</strong> pattern with Zod for runtime validation. That same architecture powers every Pal-E integration.</p>
+
+      <h2>Who is behind it</h2>
+      <p>My name is Lucas Draney. I am a Senior DevOps and SRE engineer based in Lehi, Utah. I build and operate Pal-E as a solo project — no VC funding, no team, no corporate structure between you and the person running your infrastructure.</p>
+
+      <p>My background spans federal contracting at <strong>Oddball</strong> (Veterans Affairs systems) and manufacturing and e-commerce infrastructure at <strong>Pure Earth Labs</strong>. I also hold a psychology degree from Utah Valley University, which shapes how I think about user experience and trust.</p>
+
+      <p>When you book an onboarding call or message the bot with a question, you are talking to me directly. There is no support team to route around — you get the person who built it.</p>
+
+      <h2>References</h2>
+      <p>Professional references available via LinkedIn:</p>
+      <ul class="ref-list">
+        <li><a href="https://www.linkedin.com/in/cris-stoddard/" target="_blank" rel="noopener noreferrer">Cris Stoddard</a> — QA Python Engineer, Oddball (peer)</li>
+        <li><a href="https://www.linkedin.com/in/paul-van-bloem-83a900b3/" target="_blank" rel="noopener noreferrer">Paul VanBloem</a> — Chief of Growth, Pure Earth Labs / Earth Harbor (manager)</li>
+        <li><a href="https://www.linkedin.com/in/beverly-nelson-2912765" target="_blank" rel="noopener noreferrer">Beverly Nelson</a> — Product Owner, Veterans Association</li>
+      </ul>
+
+      <h2>Links</h2>
+      <ul>
+        <li><a href="https://github.com/ldraney" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/lucasdraney" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="https://github.com/ldraney/mcp-gateway-k8s" target="_blank" rel="noopener noreferrer">Pal-E Infrastructure (mcp-gateway-k8s)</a></li>
+        <li><a href="https://t.me/personal_assistant_ldraney_bot" target="_blank" rel="noopener noreferrer">Telegram Bot</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <a href="index.html">Home</a> &middot; <a href="privacy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms of Service</a>
+    </div>
+  </footer>
+</body>
+</html>
