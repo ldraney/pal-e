@@ -221,6 +221,10 @@
       margin-top: 8px;
       line-height: 1.4;
     }
+    .tool-card .early-note a {
+      color: var(--amber);
+      text-decoration: underline;
+    }
 
     /* Tool stats */
     .tool-stats {
@@ -622,13 +626,13 @@
           <div class="icon">📧</div>
           <h3>Gmail <span class="tier-badge tier-badge-alpha">Alpha</span></h3>
           <p>Read, search, and draft emails. Summarize threads. Never miss an important message.</p>
-          <p class="early-note">Requires onboarding appointment.</p>
+          <p class="early-note"><a href="#alpha-tools">Book an onboarding call</a> — limited spots available.</p>
         </div>
         <div class="tool-card">
           <div class="icon">📅</div>
           <h3>Google Calendar <span class="tier-badge tier-badge-alpha">Alpha</span></h3>
           <p>Check your schedule, create events, find free slots. Stay on top of your day.</p>
-          <p class="early-note">Requires onboarding appointment.</p>
+          <p class="early-note"><a href="#alpha-tools">Book an onboarding call</a> — limited spots available.</p>
         </div>
         <div class="tool-card">
           <div class="icon">💼</div>
@@ -689,7 +693,7 @@
         <p class="mcp-alpha-note">Gmail and Google Calendar MCP servers are also available but require an onboarding appointment first.<br>
           Gmail: <code class="mcp-alpha-url">https://gmail-mcp.tail5b443a.ts.net/mcp</code><br>
           GCal: <code class="mcp-alpha-url">https://gcal-mcp.tail5b443a.ts.net/mcp</code><br>
-          <a href="https://t.me/personal_assistant_ldraney_bot" class="mcp-alpha-link" target="_blank" rel="noopener noreferrer">Message the bot to book an appointment.</a>
+          <a href="https://pal-e-appointment.tail5b443a.ts.net" class="mcp-alpha-link" target="_blank" rel="noopener noreferrer">Book an onboarding call to get set up.</a>
         </p>
         <p class="mcp-note">One setup, everywhere — adding a connector in claude.ai automatically makes it available on Claude Desktop and the iOS app.</p>
       </div>
@@ -712,13 +716,13 @@
           </div>
           <div class="at-feature">
             <h3>Custom integrations</h3>
-            <p>Need a tool that isn't listed? Message the bot to discuss building a custom MCP server for your workflow.</p>
+            <p>Need a tool that isn't listed? Book a call to discuss building a custom MCP server for your workflow.</p>
           </div>
         </div>
-        <a href="https://t.me/personal_assistant_ldraney_bot" class="btn btn-alpha" target="_blank" rel="noopener noreferrer">
-          Message Bot to Book Appointment
+        <a href="https://pal-e-appointment.tail5b443a.ts.net" class="btn btn-alpha" target="_blank" rel="noopener noreferrer">
+          Book Onboarding Call
         </a>
-        <p class="at-note">Message the Pal-E Telegram bot to schedule your onboarding call. You'll be set up in one session.</p>
+        <p class="at-note">Pick a time that works for you. We'll walk you through connecting your Google accounts in a quick 1-on-1 call.</p>
       </div>
     </div>
   </section>
@@ -738,7 +742,7 @@
           <div class="step-num">2</div>
           <div>
             <h3>Connect your accounts</h3>
-            <p>On Telegram, Pal-E sends you one-click OAuth links right in the chat. On Claude.ai, you'll authorize each tool on first use. Either way, your tokens are encrypted and stored on isolated infrastructure.</p>
+            <p>On Telegram, Pal-E sends you one-click OAuth links right in the chat. On Claude.ai, you'll authorize each tool on first use. Gmail and Calendar require an <a href="#alpha-tools" class="accent-link">onboarding call</a>. Either way, your tokens are encrypted and stored on isolated infrastructure.</p>
           </div>
         </div>
         <div class="step">
